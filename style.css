@@ -1,0 +1,47 @@
+/* style.css */
+
+/* Estilo do título */
+h1 {
+    font-family: 'Arial', sans-serif; /* Você pode substituir por outra fonte, se preferir */
+    font-size: 3vw; /* Tamanho responsivo baseado na largura da viewport */
+    color: #051424; /* Cor do texto */
+    text-align: center; /* Centraliza o título */
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-shadow: 0px 0px 0px #aaa; /* Sombra leve no texto */
+    border-bottom: 0px solid #0056b3; /* Linha abaixo do título */
+    padding-bottom: 5px;
+   
+}
+
+/* Estilo da grade */
+#grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-gap: 5px;
+}
+
+/* Estilo das células */
+.cell {
+    width: 50px;
+    height: 50px;
+    border: 1px solid black;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    user-select: none;
+}
+
+/* Estilos responsivos */
+@media screen and (max-width: 600px) {
+    h1 {
+        font-size: 6vw; /* Tamanho da fonte maior para telas menores */
+    }
+
+    .cell {
+        width: 40px; /* Tamanho menor das células para telas menores */
+        height: 40px;
+    }
+}
