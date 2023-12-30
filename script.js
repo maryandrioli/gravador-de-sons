@@ -1,4 +1,3 @@
-// script.js
 document.addEventListener('DOMContentLoaded', () => {
     const grid = document.getElementById('grid');
     const recorders = [];
@@ -28,9 +27,15 @@ document.addEventListener('DOMContentLoaded', () => {
             };
         });
 
-        cell.addEventListener('mousedown', () => handlePress(i));
-        cell.addEventListener('mouseup', () => handleRelease(i));
-        cell.addEventListener('mouseleave', () => handleRelease(i)); // Para gravação se o mouse sair da célula
+        // Adiciona eventos de toque e mouse para as células
+        const addEventListeners = (cell, index) => {
+            cell.addEventListener('mousedown', () => handlePress(index));
+            cell.addEventListener('mouseup', () => handleRelease(index));
+            cell.addEventListener('mouseleave', () => handleRelease(index));
+            cell.addEventListener('touchstart', (e) => { e.preventDefault(); handlePress(index); }, false);
+            cell.addEventListener('touchend', (e) => { e.preventDefault(); handleRelease(index); }, false);
+        };
+        addEventListeners(cell, i);
     }
 
     // Mapeia teclas para bolinhas e adiciona listeners
